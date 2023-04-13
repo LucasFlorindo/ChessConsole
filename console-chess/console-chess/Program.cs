@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using console_chess.Tabuleiro;
+using console_chess.tabuleiro;
 
 namespace console_chess
 {
@@ -11,11 +11,10 @@ namespace console_chess
     {
         static void Main(string[] args)
         {
-            Posicao p;
+            Tabuleiro tab = new Tabuleiro(8, 8);
+            Console.ReadLine();
 
-            p = new Posicao(3, 4);
 
-            Console.WriteLine("Posição: "+p);
         }
     }
 }
