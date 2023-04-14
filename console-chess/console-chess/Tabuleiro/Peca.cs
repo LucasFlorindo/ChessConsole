@@ -2,7 +2,7 @@
 
 namespace console_chess.tabuleiro
 {
-    class Peca
+   abstract class Peca
     {
         public Posicao posicao { get; set; }
         public Cor cor { get; protected set; }
@@ -22,5 +22,6 @@ namespace console_chess.tabuleiro
             qteMovimentos++;
         }
 
+        public abstract bool[,] movimentosPossiveis();
     }
 }
