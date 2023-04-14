@@ -17,5 +17,10 @@ namespace console_chess.tabuleiro
             this.tab = tab;
         }
 
+        public void incrementarQteMovimentos()
+        {
+            qteMovimentos++;
+        }
+
     }
 }

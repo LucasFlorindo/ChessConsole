@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using console_chess.tabuleiro;
 using xadrez;
 using tabuleiro;
+using console_chess.xadrez;
 
 namespace console_chess
 {
@@ -17,15 +18,9 @@ namespace console_chess
 
             try
             {
-                Tabuleiro tab = new Tabuleiro(8, 8);
+                PartidaDeXadrez partida = new PartidaDeXadrez();
 
-                tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
-                tab.colocarPeca(new Rei(tab, Cor.Preta), new Posicao(1, 3));
-                tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(2, 4));
-
-                tab.colocarPeca(new Rei(tab, Cor.Branca), new Posicao(5, 2));
-
-                Tela.imprimirTabuleiro(tab);
+                Tela.imprimirTabuleiro(partida.tab);
             }catch(TabuleiroException e)
             {
                 Console.WriteLine(e.Message);
