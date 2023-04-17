@@ -22,6 +22,24 @@ namespace console_chess.tabuleiro
             qteMovimentos++;
         }
 
+        public bool existeMovientosPossiveis()
+        {
+            bool[,] mat = movimentosPossiveis();
+            for (int i = 0; i < tab.linhas; i++)
+            {
+                for (int j = 0; j < tab.colunas; j++)
+                {
+                    if (mat[i, j] == true)
+                    {
+                        return true;
+                    }
+
+                }
+            }
+            return false;
+
+        }
+
         public abstract bool[,] movimentosPossiveis();
     }
 }
