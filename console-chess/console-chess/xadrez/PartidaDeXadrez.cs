@@ -62,6 +62,14 @@ namespace console_chess.xadrez
             }
         }
 
+        public void validarPosicaoDeDestino(Posicao origem, Posicao destino)
+        {
+            if (tab.peca(origem).podeMoverPara(destino))
+            {
+                throw new TabuleiroException("Posição de destino inválida!");
+            }
+        }
+
         public void mudaJogador()
         {
             if(jogadorAtual == Cor.Branca)

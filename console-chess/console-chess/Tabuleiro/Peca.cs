@@ -33,11 +33,14 @@ namespace console_chess.tabuleiro
                     {
                         return true;
                     }
-
                 }
             }
             return false;
+        }
 
+        public bool podeMoverPara(Posicao pos)
+        {
+            return movimentosPossiveis()[pos.linha, pos.coluna];
         }
 
         public abstract bool[,] movimentosPossiveis();
