@@ -19,9 +19,9 @@ namespace console_chess.xadrez
         public Cor jogadorAtual { get;  private set; }
         public bool terminada { get; private set; }
 
-        private Peca vulneravelEnPassant;
+        public Peca vulneravelEnPassant { get; private set; }
 
-        
+
 
         private HashSet<Peca> pecas;
         private HashSet<Peca> capturadas;

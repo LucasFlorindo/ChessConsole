@@ -118,8 +118,8 @@ namespace console_chess.xadrez
                     }
                 }
             }
+
             return mat;
         }
     }
 }
-
