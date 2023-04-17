@@ -104,7 +104,7 @@ namespace console_chess.xadrez
             if (pecaCapturada != null)
             {
                 tab.colocarPeca(pecaCapturada, destino);
-                capturadas.Remove(pecaCapturada);
+                //capturadas.Remove(pecaCapturada);
             }
             tab.colocarPeca(p, origem);
 
@@ -224,10 +224,9 @@ namespace console_chess.xadrez
 
         public void validarPosicaoDeDestino(Posicao origem, Posicao destino)
         {
-            if (tab.peca(origem).movimentoPossivel(destino))
+            if (!tab.peca(origem).movimentoPossivel(destino))
             {
                 throw new TabuleiroException("Posição de destino inválida!");
-
             }
         }
 

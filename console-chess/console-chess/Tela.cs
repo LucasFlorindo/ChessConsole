@@ -23,18 +23,17 @@ namespace console_chess
             Console.WriteLine("Turno: " + partida.turno);
             if (!partida.terminada)
             {
-                Console.WriteLine("Aguardando a jogada de " + partida.jogadorAtual);
+                Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
                 if (partida.xeque)
                 {
                     Console.WriteLine("XEQUE!");
                 }
-                else
-                {
-                    Console.WriteLine("XEQUEMATE!");
-                    Console.WriteLine("Vencedor: " +partida.jogadorAtual);
-                }
             }
-            
+            else
+            {
+                Console.WriteLine("XEQUEMATE!");
+                Console.WriteLine("Vencedor: " + partida.jogadorAtual);
+            }
         }
 
         public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
