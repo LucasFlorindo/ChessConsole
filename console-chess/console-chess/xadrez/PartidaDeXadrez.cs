@@ -46,10 +46,8 @@ namespace console_chess.xadrez
         {
             Peca p = tab.retirarPeca(origem);
             p.incrementarQteMovimentos();
-            tab.retirarPeca(destino);
             Peca pecaCapturada = tab.retirarPeca(destino);
             tab.colocarPeca(p, destino);
-
             if (pecaCapturada != null)
             {
                 capturadas.Add(pecaCapturada);
@@ -75,6 +73,24 @@ namespace console_chess.xadrez
                 tab.colocarPeca(T, destinoT);
             }
 
+            // #jogadaespecial en passant
+            if (p is Peao)
+            {
+                if (origem.coluna != destino.coluna && pecaCapturada == null)
+                {
+                    Posicao posP;
+                    if (p.cor == Cor.Branca)
+                    {
+                        posP = new Posicao(destino.linha + 1, destino.coluna);
+                    }
+                    else
+                    {
+                        posP = new Posicao(destino.linha - 1, destino.coluna);
+                    }
+                    pecaCapturada = tab.retirarPeca(posP);
+                    capturadas.Add(pecaCapturada);
+                }
+            }
 
             return pecaCapturada;
         }
