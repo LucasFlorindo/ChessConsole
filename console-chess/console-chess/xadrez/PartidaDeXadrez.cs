@@ -19,6 +19,8 @@ namespace console_chess.xadrez
         public Cor jogadorAtual { get;  private set; }
         public bool terminada { get; private set; }
 
+        private Peca vulneravelEnPassant;
+
         
 
         private HashSet<Peca> pecas;
@@ -34,6 +36,7 @@ namespace console_chess.xadrez
             jogadorAtual = Cor.Branca;
             terminada = false;
             xeque = false;
+            vulneravelEnPassant = null;
             pecas = new HashSet<Peca>();
             capturadas = new HashSet<Peca>();
             colocarPecas();
@@ -119,8 +122,19 @@ namespace console_chess.xadrez
                 mudaJogador();
             }
 
-            
+            Peca p = tab.peca(destino);
+            // #jogadaespecial en passant
+            if (p is Peao && (destino.linha == origem.linha - 2 || destino.linha == origem.linha + 2))
+            {
+                vulneravelEnPassant = p;
+            }
+            else
+            {
+                vulneravelEnPassant = null;
+            }
+
         }
+
 
         public void validarPosicaoDeOrigem(Posicao pos)
         {
@@ -248,7 +262,7 @@ namespace console_chess.xadrez
                     for (int j = 0; j < tab.colunas; j++)
                     {
                         if (mat[i, j])
-                        {]
+                        {
                             Posicao origem = x.posicao;
                             Posicao destino = new Posicao(i, j);
                             Peca pecaCapturada = executaMovimento(origem, destino);
